@@ -1,25 +1,13 @@
 # ダウンロードアプリ
 
-- copyclip
-- Alfred//
+- xcord
 - line
 - messanger
-- slack//
-- adobe xd
-- xcord
-- chrome//
-- firefox
-- interij
-- iterm
-- docker//
-- notion
-- vscord//
-- sublime text
-- zoom
-- skitch
 
 # mac 設定
 
 # brew 周り
 
 # vscord セットアップ
+修飾キーの変更要調整
+https://blog.hatappi.me/entry/2018/11/29/215118
