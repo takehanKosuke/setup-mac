@@ -29,12 +29,12 @@ defaults write com.apple.finder ShowTabView -bool true
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
 ## ユーザー辞書(変換前=a, 変換後=b)
-defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
-# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
-# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
-# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
-# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
-# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
+defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=te;with=test;}'
+# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=te;with=test;}'
+# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=te;with=test;}'
+# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=te;with=test;}'
+# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=te;with=test;}'
+# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=te;with=test;}'
 
 # capslockをcontrolに割り当て
 # capslockが30064771129、controlが30064771300に割り当て
