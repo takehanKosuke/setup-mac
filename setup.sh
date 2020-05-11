@@ -28,8 +28,85 @@ defaults write com.apple.finder ShowTabView -bool true
 # アドレスバーに完全な URL を表示する
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
+## ユーザー辞書(変換前=a, 変換後=b)
+defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
+# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
+# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
+# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
+# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
+# defaults write -g NSUserDictionaryReplacementItems -array-add '{on=1;replace=かわ;with=河野 孝祐;}'
+
+# capslockをcontrolに割り当て
+# capslockが30064771129、controlが30064771300に割り当て
+vid=$(ioreg -r -n 'Apple Internal Keyboard / Trackpad' | grep -E 'idVendor' | awk '{ print $4 }')
+pid=$(ioreg -r -n 'Apple Internal Keyboard / Trackpad' | grep -E 'idProduct' | awk '{ print $4 }')
+keyboard_id=${vid}-${pid}-0
+defaults -currentHost write -g com.apple.keyboard.modifiermapping.${keyboard_id} -array-add '
+<dict>
+  <key>HIDKeyboardModifierMappingDst</key>
+  <integer>30064771300</integer>
+  <key>HIDKeyboardModifierMappingSrc</key>
+  <integer>30064771129</integer>
+</dict>
+'
+
+# トラックパッドの速度を速める
+defaults write -g com.apple.trackpad.scaling 5
 
 
+# シェルの設定を追加{$shell_profile}
+shell_profile=.zshrc
+echo 'alias g="git"' >> ~/{$shell_profile}
+
+echo 'alias la="ls -la"' >> ~/{$shell_profile}
+echo 'alias g="git"' >> ~/{$shell_profile}
+echo 'alias g="git"' >> ~/{$shell_profile}
+echo 'alias g="git"' >> ~/{$shell_profile}
+
+# git alias
+echo 'alias st="git status"' >> ~/{$shell_profile}
+echo 'alias co="git commit"' >> ~/{$shell_profile}
+echo 'alias ch="git checkout"' >> ~/{$shell_profile}
+echo 'alias b="git branch"' >> ~/{$shell_profile}
+echo 'alias difff="git diff --word-diff"' >> ~/{$shell_profile}
+echo 'alias d="git diff"' >> ~/{$shell_profile}
+echo 'alias re="git reset"' >> ~/{$shell_profile}
+echo 'alias hard="git reset --hard"' >> ~/{$shell_profile}
+echo 'alias soft="git reset --soft"' >> ~/{$shell_profile}
+
+
+## vscordプラグインインストール
+code --install-extension 42Crunch.vscode-openapi
+code --install-extension 766b.go-outliner
+code --install-extension abusaidm.html-snippets
+code --install-extension Arjun.swagger-viewer
+code --install-extension chrmarti.regex
+code --install-extension codezombiech.gitignore
+code --install-extension CoenraadS.bracket-pair-colorizer
+code --install-extension Dart-Code.dart-code
+code --install-extension Dart-Code.flutter
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension eamodio.gitlens
+code --install-extension ecmel.vscode-html-css
+code --install-extension esbenp.prettier-vscode
+code --install-extension golang.go-nightly
+code --install-extension humao.rest-client
+code --install-extension ionutvmi.path-autocomplete
+code --install-extension jcbuisson.vue
+code --install-extension kaiwood.endwise
+code --install-extension mechatroner.rainbow-csv
+code --install-extension mrmlnc.vscode-duplicate
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-vscode.Go
+code --install-extension noku.rails-run-spec-vscode
+code --install-extension premparihar.gotestexplorer
+code --install-extension redhat.vscode-yaml
+code --install-extension shardulm94.trailing-spaces
+code --install-extension Vense.rails-snippets
+code --install-extension vortizhe.simple-ruby-erb
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension wayou.vscode-todo-highlight
+code --install-extension Zignd.html-css-class-completion
 
 ## brew 周りのインストール
 
@@ -56,7 +133,7 @@ brew install git
 brew install anyenv
 
 # path通すよ.zshrcのところは要修正
-echo 'eval "$(anyenv init -)"' >> ~/.zshrc
+echo 'eval "$(anyenv init -)"' >> ~/{$shell_profile}
 anyenv init
 anyenv install --init https://github.com/foo/anyenv-install.git
 anyenv install rbenv
@@ -150,3 +227,5 @@ brew cask install intellij-idea-ce
 
 
 
+## 設定反映のためmacを再起動
+sudo reboot
