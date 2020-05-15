@@ -107,6 +107,8 @@ code --install-extension vortizhe.simple-ruby-erb
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension wayou.vscode-todo-highlight
 code --install-extension Zignd.html-css-class-completion
+code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension adpyke.vscode-sql-formatter
 
 ## brew 周りのインストール
 
@@ -147,6 +149,12 @@ nodenv install 8.16.0
 nodenv install 12.6.0
 pyenv install 3.6.1
 goenv install 1.11.4
+
+# go migrationツール
+brew install golang-migrate
+
+# go lint
+brew install golangci/tap/golangci-lint
 
 # aws cli
 brew install awscli
@@ -220,9 +228,6 @@ brew cask install android-studio
 
 #notion
 brew cask install notion
-
-#intellij
-brew cask install intellij-idea-ce
 
 
 
