@@ -83,8 +83,6 @@ code --install-extension Arjun.swagger-viewer
 code --install-extension chrmarti.regex
 code --install-extension codezombiech.gitignore
 code --install-extension CoenraadS.bracket-pair-colorizer
-code --install-extension Dart-Code.dart-code
-code --install-extension Dart-Code.flutter
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension eamodio.gitlens
 code --install-extension ecmel.vscode-html-css
@@ -109,6 +107,10 @@ code --install-extension wayou.vscode-todo-highlight
 code --install-extension Zignd.html-css-class-completion
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension adpyke.vscode-sql-formatter
+code --install-extension vscode-drawio
+code --install-extension xabikos.JavaScriptSnippets
+code --install-extension mechatroner.rainbow-csv
+code --install-extension Shan.code-settings-sync
 
 ## brew 周りのインストール
 
