@@ -22,7 +22,9 @@ defaults write com.apple.finder ShowPathbar -bool true
 # ステータスバーを表示する
 defaults write com.apple.finder ShowStatusBar -bool true
 
-# dockの
+# USB やネットワークストレージに .DS_Store ファイルを作成しない
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 
 # タブバーを表示する
