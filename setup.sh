@@ -237,6 +237,9 @@ brew cask install android-studio
 #notion
 brew cask install notion
 
+#workplace
+brew cask install workplace-chat
+
 
 ## 設定反映のためmacを再起動
 sudo reboot
