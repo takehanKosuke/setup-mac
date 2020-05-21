@@ -56,26 +56,52 @@ defaults write -g com.apple.trackpad.scaling 5
 
 # シェルの設定を追加{$shell_profile}
 shell_profile=.zshrc
-echo 'alias g="git"' >> ~/{$shell_profile}
 
-echo 'alias la="ls -la"' >> ~/{$shell_profile}
-echo 'alias d="docker"' >> ~/{$shell_profile}
-echo 'alias dc="docker-compose"' >> ~/{$shell_profile}
+# git系
+echo '
+# git alias
+alias g="git"
+alias st="git status"
+alias com="git commit -m"
+alias coam="git commit --amend -m"
+alias ch="git checkout"
+alias b="git branch"
+alias difff="git diff --word-diff"
+alias d="git diff"
+alias re="git reset"
+alias hard="git reset --hard"
+alias soft="git reset --soft"
+alias ph="git push origin HEAD"
+' >> ~/{$shell_profile}
 
+# docker系
+echo '
+# docker alias
+alias d="docker"
+alias dc="docker-compose"
+' >> ~/{$shell_profile}
+
+# kubernetes系
+echo 'alias k="kubectl"' >> ~/{$shell_profile}
+# kubernetesコマンド補完
+source <(kubectl completion zsh)
+echo "if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
+
+# その他使える系
+echo '
+# other alias
+alias la="ls -la"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+' >> ~/{$shell_profile}
+
+# vscode
+echo'alias v="code"' >> ~/{$shell_profile}
 
 # git alias
 # user名を修正すること
-echo "[alias]
-	st = status
-  co = commit
-  ch = checkout
-  b = branch
-  difff = diff --word-diff
-	d = diff
-	re = reset
-	hard = reset --hard
-	soft = reset --soft
-	ph = push origin HEAD
+echo "
 [user]
 	name = hogehoge
 	email = fugafuga.com" >> ~/.gitconfig
@@ -124,10 +150,25 @@ code --install-extension Shan.code-settings-sync
 /bin/bash -c "\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 brew update
 
+# mas appストアからのダウンロードをするためのbrew
+brew install mas
+
+# xcode
+mas install 497799835
+
+# line
+mas install 539883307
+
+# Messenger
+mas install 1480068668
+
+# Magnet
+mas install 441258766
+
 # homebrew-cask
 brew install brew-cask
 
-# catの強いやつの
+# catの強いやつ
 brew install bat
 
 # vim
@@ -237,8 +278,11 @@ brew cask install android-studio
 #notion
 brew cask install notion
 
-#workplace
+# workplace
 brew cask install workplace-chat
+
+# clipy
+brew cask install clipy
 
 
 ## 設定反映のためmacを再起動
