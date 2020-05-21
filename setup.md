@@ -17,8 +17,6 @@
 - android-studio
 - notion
 
-# ダウンロードアプリ
-
 - xcode
 - line
 - messenger

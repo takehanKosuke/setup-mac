@@ -22,6 +22,9 @@ defaults write com.apple.finder ShowPathbar -bool true
 # ステータスバーを表示する
 defaults write com.apple.finder ShowStatusBar -bool true
 
+# dockの
+
+
 # タブバーを表示する
 defaults write com.apple.finder ShowTabView -bool true
 
@@ -283,6 +286,9 @@ brew cask install workplace-chat
 
 # clipy
 brew cask install clipy
+
+# imageoptim　画像軽量化ツール
+brew cask install imageoptim
 
 
 ## 設定反映のためmacを再起動
