@@ -59,20 +59,26 @@ shell_profile=.zshrc
 echo 'alias g="git"' >> ~/{$shell_profile}
 
 echo 'alias la="ls -la"' >> ~/{$shell_profile}
-echo 'alias g="git"' >> ~/{$shell_profile}
-echo 'alias g="git"' >> ~/{$shell_profile}
-echo 'alias g="git"' >> ~/{$shell_profile}
+echo 'alias d="docker"' >> ~/{$shell_profile}
+echo 'alias dc="docker-compose"' >> ~/{$shell_profile}
+
 
 # git alias
-echo 'alias st="git status"' >> ~/{$shell_profile}
-echo 'alias co="git commit"' >> ~/{$shell_profile}
-echo 'alias ch="git checkout"' >> ~/{$shell_profile}
-echo 'alias b="git branch"' >> ~/{$shell_profile}
-echo 'alias difff="git diff --word-diff"' >> ~/{$shell_profile}
-echo 'alias d="git diff"' >> ~/{$shell_profile}
-echo 'alias re="git reset"' >> ~/{$shell_profile}
-echo 'alias hard="git reset --hard"' >> ~/{$shell_profile}
-echo 'alias soft="git reset --soft"' >> ~/{$shell_profile}
+# user名を修正すること
+echo "[alias]
+	st = status
+  co = commit
+  ch = checkout
+  b = branch
+  difff = diff --word-diff
+	d = diff
+	re = reset
+	hard = reset --hard
+	soft = reset --soft
+	ph = push origin HEAD
+[user]
+	name = hogehoge
+	email = fugafuga.com" >> ~/.gitconfig
 
 
 ## vscordプラグインインストール
@@ -109,6 +115,7 @@ code --install-extension wayou.vscode-todo-highlight
 code --install-extension Zignd.html-css-class-completion
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension adpyke.vscode-sql-formatter
+code --install-extension hediet.vscode-drawio
 
 ## brew 周りのインストール
 
@@ -181,7 +188,7 @@ brew tap homebrew/cask-fonts
 # アルフレッド
 brew cask install alfred
 
-# vscord
+# vscode
 brew cask install visual-studio-code
 
 # font
@@ -214,7 +221,7 @@ brew cask install firefox
 # skitch
 brew cask install skitch
 
-# adobi
+# adobe
 brew cask install adobe-creative-cloud
 
 # skype
@@ -223,13 +230,11 @@ brew cask install skype
 # zoom
 brew cask install zoomus
 
-# Android
+# Android-studio
 brew cask install android-studio
 
 #notion
 brew cask install notion
-
-
 
 
 ## 設定反映のためmacを再起動

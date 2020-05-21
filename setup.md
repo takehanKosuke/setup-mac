@@ -1,8 +1,27 @@
+# brew で download するアプリ
+
+- alfred
+- vscode
+- chrome
+- docker
+- slack
+- discord
+- copyclip
+- sublime
+- iterm2
+- firefox
+- skitch
+- adobe
+- skype
+- zoom
+- android-studio
+- notion
+
 # ダウンロードアプリ
 
-- xcord
+- xcode
 - line
-- messanger
+- messenger
 
 # その他
 
