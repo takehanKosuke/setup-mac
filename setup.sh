@@ -59,38 +59,36 @@ defaults -currentHost write -g com.apple.keyboard.modifiermapping.${keyboard_id}
 defaults write -g com.apple.trackpad.scaling 5
 
 
-# シェルの設定を追加{$shell_profile}
-shell_profile=.zshrc
+# シェルの設定を追加.zshrc
+# shell_profile=.zshrc
 
 # git系
 echo '
 # git alias
 alias g="git"
-alias st="git status"
-alias com="git commit -m"
-alias coam="git commit --amend -m"
-alias ch="git checkout"
-alias b="git branch"
-alias difff="git diff --word-diff"
-alias d="git diff"
-alias re="git reset"
-alias hard="git reset --hard"
-alias soft="git reset --soft"
-alias ph="git push origin HEAD"
-' >> ~/{$shell_profile}
+' >> ~/.zshrc
 
 # docker系
 echo '
 # docker alias
 alias d="docker"
 alias dc="docker-compose"
-' >> ~/{$shell_profile}
+' >> ~/.zshrc
 
 # kubernetes系
-echo 'alias k="kubectl"' >> ~/{$shell_profile}
+echo '
+# kubernetes系
+alias k="kubectl"
+' >> ~/.zshrc
 # kubernetesコマンド補完
 source <(kubectl completion zsh)
 echo "if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
+
+# terraform系
+echo '
+# terraform系
+alias t="terraform"
+' >> ~/.zshrc
 
 # その他使える系
 echo '
@@ -99,17 +97,30 @@ alias la="ls -la"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-' >> ~/{$shell_profile}
+' >> ~/.zshrc
 
 # vscode
-echo'alias v="code"' >> ~/{$shell_profile}
+echo'alias v="code"' >> ~/.zshrc
 
 # git alias
 # user名を修正すること
 echo "
+[alias]
+  st  = status
+  com = commit -m
+  coam  = commit --amend -m
+  ch  = checkout
+  b = branch
+  difff = diff --word-diff
+  d = diff
+  re  = reset
+  hard  = reset --hard
+  soft  = reset --soft
+  ph  = push origin HEAD
 [user]
 	name = hogehoge
-	email = fugafuga.com" >> ~/.gitconfig
+	email = fugafuga.com
+" >> ~/.gitconfig
 
 
 ## vscordプラグインインストール
@@ -170,6 +181,9 @@ mas install 1480068668
 # Magnet
 mas install 441258766
 
+# Be Focused(ポモドーロタイマー)
+mas install 973134470
+
 # homebrew-cask
 brew install brew-cask
 
@@ -189,7 +203,7 @@ brew install git
 brew install anyenv
 
 # path通すよ.zshrcのところは要修正
-echo 'eval "$(anyenv init -)"' >> ~/{$shell_profile}
+echo 'eval "$(anyenv init -)"' >> ~/.zshrc
 anyenv init
 anyenv install --init https://github.com/foo/anyenv-install.git
 anyenv install rbenv
@@ -199,10 +213,22 @@ anyenv install goenv
 exec $SHELL -l
 rbenv install 2.5.1
 rbenv install 2.6.4
+rbenv global 2.6.4
+
 nodenv install 8.16.0
 nodenv install 12.6.0
+nodenv global 12.6.0
+
 pyenv install 3.6.1
+pyenv global 3.6.1
+
 goenv install 1.11.4
+goenv global 1.11.4
+
+echo '
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+' >> ~/.zshrc
 
 # go migrationツール
 brew install golang-migrate
@@ -210,11 +236,25 @@ brew install golang-migrate
 # go lint
 brew install golangci/tap/golangci-lint
 
-# aws cli
+# aws cli系統
+# メインcli
 brew install awscli
+
+# eks cli
+brew tap weaveworks/tap
+brew install weaveworks/tap/eksctl
+
+# kubectx
+brew install kubectx
+
+# terraform
+brew install terraform
 
 # tree
 brew install tree
+
+# grpcurl
+brew install grpcurl
 
 # mysql
 brew install mysql
@@ -292,6 +332,16 @@ brew cask install clipy
 # imageoptim　画像軽量化ツール
 brew cask install imageoptim
 
+# gcloud
+brew cask install google-cloud-sdk
+echo "
+# gcloud path
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+" >> ~/.zshrc
+
+# gcloud kubernetes cli
+gcloud components install kubectl
 
 ## 設定反映のためmacを再起動
 sudo reboot

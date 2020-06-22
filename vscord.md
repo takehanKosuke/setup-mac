@@ -63,3 +63,16 @@
 		"description": "create table"
 	}
 ```
+
+## javascript
+
+```
+"Print to console": {
+  "prefix": "con",
+  "body": [
+    "console.log('===========')",
+	"console.log($1)"
+  ],
+  "description": "デバッグ用console.log"
+},
+```
