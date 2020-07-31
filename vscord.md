@@ -8,7 +8,7 @@
 "Print to console": {
   "prefix": "",
   "body": [
-    ""
+	""
   ],
   "description": ""
 },
@@ -18,19 +18,28 @@
 
 ```
 "Print to console": {
-  "prefix": "fff",
-  "body": [
-    "fmt.Printf(\"==========%#v\\n\", $1)"
-  ],
-  "description": "動きを確認するためのlog"
+	"prefix": "fff",
+	"body": [
+		"fmt.Printf(\"==========%#v\\n\", $1)"
+	],
+	"description": "動きを確認するためのlog"
 },
 "func": {
-  "prefix": "fun",
-  "body": [
-    "func ($1) $2($3)($4){",
-    "\t$0",
-    "}"
-  ]
+	"prefix": "fc",
+	"body": [
+		"func ($1) $2($3)($4){",
+		"\t$0",
+		"}"
+	]
+},
+"test func": {
+	"prefix": "fct",
+	"body": [
+		"func Test$1(t *testing.T) {",
+		"t.Parallel()",
+		"asserts := assert.New(t)",
+		"}",
+	]
 },
 ```
 
@@ -70,7 +79,7 @@
 "Print to console": {
   "prefix": "con",
   "body": [
-    "console.log('===========')",
+	"console.log('===========')",
 	"console.log($1)"
   ],
   "description": "デバッグ用console.log"
