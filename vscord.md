@@ -17,45 +17,52 @@
 ## golang
 
 ```
-"Print to console": {
-	"prefix": "fff",
-	"body": [
-		"fmt.Printf(\"==========%#v\\n\", $1)"
-	],
-	"description": "動きを確認するためのlog"
-},
-"func": {
-	"prefix": "fc",
-	"body": [
-		"func ($1) $2($3)($4){",
-		"\t$0",
-		"}"
-	]
-},
-"test func": {
-	"prefix": "fct",
-	"body": [
+{
+	"Print to console": {
+		"prefix": "fff",
+		"body": [
+			"fmt.Printf(\"==========%#v\\n\", $1)"
+		],
+		"description": "動きを確認するためのlog"
+	},
+	"func": {
+		"prefix": "fc",
+		"body": [
+			"func ($1) $2($3)($4){",
+			"\t$0",
+			"}"
+		]
+	},
+	"package": {
+		"prefix": "pac",
+		"body": "package"
+	},
+	"test func": {
+		"prefix": "fct",
+		"body": [
 			"func Test$1(t *testing.T) {",
-			"t.Parallel()",
-			"asserts := assert.New(t)",
-			"tests := []struct{",
-			"name string",
-			"input string",
-			"output string",
-			"}{",
-			"{",
-			"input: ,",
-			"output: ,",
-			"},",
-			"}",
-			"for _, td := range tests {",
-			"td := td",
-			"t.Run(td.name, func(t *testing.T) {",
-			"})",
-			"}",
-			"}",
-	]
-},
+			"\tt.Parallel()",
+			"\tasserts := assert.New(t)",
+			"\ttests := []struct{",
+			"\t\tname string",
+			"\t\tinput string",
+			"\t\toutput string",
+			"\t}{",
+			"\t\t{",
+			"\t\t\tname: \"\",",
+			"\t\t\tinput: \"\",",
+			"\t\t\toutput: \"\",",
+			"\t\t},",
+			"\t}",
+			"\tfor _, td := range tests {",
+			"\t\ttd := td",
+			"\t\tt.Run(td.name, func(t *testing.T) {",
+			"\t\t})",
+			"\t}",
+			"}"
+		]
+	}
+}
 ```
 
 ## sql
@@ -94,7 +101,7 @@
 "Print to console": {
   "prefix": "con",
   "body": [
-	"console.log('===========')",
+	"console.log(\"===========\")",
 	"console.log($1)"
   ],
   "description": "デバッグ用console.log"
