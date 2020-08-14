@@ -200,6 +200,10 @@ brew install mysql
 # imagemagick
 brew install imagemagick
 
+# plantUMLに必要なやつ
+brew install graphviz
+echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >> ~/.zshrc
+
 # json見やすく
 brew install jq
 
@@ -219,6 +223,9 @@ brew cask install alfred
 
 # vscode
 brew cask install visual-studio-code
+
+# javaのインストール
+brew cask install java
 
 # font
 brew cask install font-source-han-code-jp
