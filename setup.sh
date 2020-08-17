@@ -207,6 +207,9 @@ brew install wget
 brew install graphviz
 echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >> ~/.zshrc
 
+# Protocol buffers formatter
+brew install clang-format
+
 # json見やすく
 brew install jq
 
