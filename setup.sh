@@ -200,6 +200,9 @@ brew install mysql
 # imagemagick
 brew install imagemagick
 
+# wget
+brew install wget
+
 # plantUMLに必要なやつ
 brew install graphviz
 echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >> ~/.zshrc
