@@ -55,74 +55,6 @@ defaults -currentHost write -g com.apple.keyboard.modifiermapping.${keyboard_id}
 </dict>
 '
 
-# トラックパッドの速度を速める
-defaults write -g com.apple.trackpad.scaling 5
-
-
-# シェルの設定を追加.zshrc
-# shell_profile=.zshrc
-
-# git系
-echo '
-# git alias
-alias g="git"
-' >> ~/.zshrc
-
-# docker系
-echo '
-# docker alias
-alias d="docker"
-alias dc="docker-compose"
-' >> ~/.zshrc
-
-# kubernetes系
-echo '
-# kubernetes系
-alias k="kubectl"
-' >> ~/.zshrc
-# kubernetesコマンド補完
-source <(kubectl completion zsh)
-echo "if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
-
-# terraform系
-echo '
-# terraform系
-alias t="terraform"
-' >> ~/.zshrc
-
-# その他使える系
-echo '
-# other alias
-alias la="ls -la"
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-' >> ~/.zshrc
-
-# vscode
-echo'alias v="code"' >> ~/.zshrc
-
-# git alias
-# user名を修正すること
-echo "
-[alias]
-  st  = status
-  com = commit -m
-  coam  = commit --amend -m
-  ch  = checkout
-  b = branch
-  difff = diff --word-diff
-  d = diff
-  re  = reset
-  hard  = reset --hard
-  soft  = reset --soft
-  ph  = push origin HEAD
-[user]
-	name = hogehoge
-	email = fugafuga.com
-" >> ~/.gitconfig
-
-
 ## vscordプラグインインストール
 code --install-extension 42Crunch.vscode-openapi
 code --install-extension 766b.go-outliner
@@ -165,6 +97,12 @@ code --install-extension Shan.code-settings-sync
 # brew本体ののインストール
 /bin/bash -c "\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 brew update
+
+# iterm2
+brew cask install iterm2
+
+# oh my zshのインストール
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
 # mas appストアからのダウンロードをするためのbrew
 brew install mas
@@ -266,8 +204,22 @@ brew install mysql
 # imagemagick
 brew install imagemagick
 
+# wget
+brew install wget
+
+# plantUMLに必要なやつ
+brew install graphviz
+echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >> ~/.zshrc
+
+# Protocol buffers formatter
+brew install clang-format
+
 # json見やすく
 brew install jq
+
+# direnv環境変数
+brew install direnv
+eval "$(direnv hook zsh)"
 
 # yarn
 brew install yarn
@@ -281,6 +233,9 @@ brew cask install alfred
 
 # vscode
 brew cask install visual-studio-code
+
+# javaのインストール
+brew cask install java
 
 # font
 brew cask install font-source-han-code-jp
@@ -302,9 +257,6 @@ brew cask install copyclip
 
 # sublime
 brew cask install sublime-text
-
-# iterm2
-brew cask install iterm2
 
 # firefox
 brew cask install firefox
@@ -346,6 +298,74 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 
 # gcloud kubernetes cli
 gcloud components install kubectl
+
+
+# トラックパッドの速度を速める
+defaults write -g com.apple.trackpad.scaling 5
+
+
+# シェルの設定を追加.zshrc
+# shell_profile=.zshrc
+
+# git系
+echo '
+# git alias
+alias g="git"
+' >> ~/.zshrc
+
+# docker系
+echo '
+# docker alias
+alias d="docker"
+alias dc="docker-compose"
+' >> ~/.zshrc
+
+# kubernetes系
+echo '
+# kubernetes系
+alias k="kubectl"
+' >> ~/.zshrc
+# kubernetesコマンド補完
+source <(kubectl completion zsh)
+echo "if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
+
+# terraform系
+echo '
+# terraform系
+alias t="terraform"
+' >> ~/.zshrc
+
+# その他使える系
+echo '
+# other alias
+alias la="ls -la"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+' >> ~/.zshrc
+
+# vscode
+echo'alias v="code"' >> ~/.zshrc
+
+# git alias
+# user名を修正すること
+echo "
+[alias]
+  st  = status
+  com = commit -m
+  coam  = commit --amend -m
+  ch  = checkout
+  b = branch
+  difff = diff --word-diff
+  d = diff
+  re  = reset
+  hard  = reset --hard
+  soft  = reset --soft
+  ph  = push origin HEAD
+[user]
+	name = hogehoge
+	email = fugafuga.com
+" >> ~/.gitconfig
 
 ## 設定反映のためmacを再起動
 sudo reboot
