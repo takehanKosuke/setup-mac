@@ -185,6 +185,7 @@ brew install weaveworks/tap/eksctl
 # sam
 brew tap aws/tap
 brew install aws-sam-cli
+echo 'export PATH="/usr/local/opt/python@3.7/bin:$PATH"' >> ~/.zshrc
 
 # kubectx
 brew install kubectx
