@@ -244,6 +244,10 @@ brew install awscli
 brew tap weaveworks/tap
 brew install weaveworks/tap/eksctl
 
+# sam
+brew tap aws/tap
+brew install aws-sam-cli
+
 # kubectx
 brew install kubectx
 
