@@ -143,7 +143,7 @@ brew install anyenv
 # path通すよ.zshrcのところは要修正
 echo 'eval "$(anyenv init -)"' >> ~/.zshrc
 anyenv init
-anyenv install --init https://github.com/foo/anyenv-install.git
+anyenv install --init
 anyenv install rbenv
 anyenv install pyenv
 anyenv install nodenv
