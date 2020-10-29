@@ -55,43 +55,6 @@ defaults -currentHost write -g com.apple.keyboard.modifiermapping.${keyboard_id}
 </dict>
 '
 
-## vscordプラグインインストール
-code --install-extension 42Crunch.vscode-openapi
-code --install-extension 766b.go-outliner
-code --install-extension abusaidm.html-snippets
-code --install-extension Arjun.swagger-viewer
-code --install-extension chrmarti.regex
-code --install-extension codezombiech.gitignore
-code --install-extension CoenraadS.bracket-pair-colorizer
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension eamodio.gitlens
-code --install-extension ecmel.vscode-html-css
-code --install-extension esbenp.prettier-vscode
-code --install-extension golang.go-nightly
-code --install-extension humao.rest-client
-code --install-extension ionutvmi.path-autocomplete
-code --install-extension jcbuisson.vue
-code --install-extension kaiwood.endwise
-code --install-extension mechatroner.rainbow-csv
-code --install-extension mrmlnc.vscode-duplicate
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension ms-vscode.Go
-code --install-extension noku.rails-run-spec-vscode
-code --install-extension premparihar.gotestexplorer
-code --install-extension redhat.vscode-yaml
-code --install-extension shardulm94.trailing-spaces
-code --install-extension Vense.rails-snippets
-code --install-extension vortizhe.simple-ruby-erb
-code --install-extension vscode-icons-team.vscode-icons
-code --install-extension wayou.vscode-todo-highlight
-code --install-extension Zignd.html-css-class-completion
-code --install-extension streetsidesoftware.code-spell-checker
-code --install-extension adpyke.vscode-sql-formatter
-code --install-extension hediet.vscode-drawio
-code --install-extension xabikos.JavaScriptSnippets
-code --install-extension mechatroner.rainbow-csv
-code --install-extension Shan.code-settings-sync
-
 ## brew 周りのインストール
 
 # brew本体ののインストール
@@ -136,6 +99,8 @@ brew install jesseduffield/lazydocker/lazydocker
 
 # git
 brew install git
+
+brew install peco
 
 # anyenv
 brew install anyenv
@@ -283,6 +248,11 @@ brew cask install clipy
 
 # imageoptim　画像軽量化ツール
 brew cask install imageoptim
+
+# k8sの設定をyamlで記述するためのモジュール
+brew install kubernetes-helm
+
+brew install k9s
 
 # gcloud
 brew cask install google-cloud-sdk
