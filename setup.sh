@@ -108,7 +108,7 @@ brew install anyenv
 # path通すよ.zshrcのところは要修正
 echo 'eval "$(anyenv init -)"' >> ~/.zshrc
 anyenv init
-anyenv install --init https://github.com/foo/anyenv-install.git
+anyenv install --init
 anyenv install rbenv
 anyenv install pyenv
 anyenv install nodenv
@@ -146,6 +146,11 @@ brew install awscli
 # eks cli
 brew tap weaveworks/tap
 brew install weaveworks/tap/eksctl
+
+# sam
+brew tap aws/tap
+brew install aws-sam-cli
+echo 'export PATH="/usr/local/opt/python@3.7/bin:$PATH"' >> ~/.zshrc
 
 # kubectx
 brew install kubectx
