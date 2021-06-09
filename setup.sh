@@ -62,7 +62,7 @@ defaults -currentHost write -g com.apple.keyboard.modifiermapping.${keyboard_id}
 brew update
 
 # iterm2
-brew cask install iterm2
+brew install iterm2 --cask
 
 # oh my zshのインストール
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
@@ -113,6 +113,7 @@ anyenv install rbenv
 anyenv install pyenv
 anyenv install nodenv
 anyenv install goenv
+anyenv install tfenv
 exec $SHELL -l
 rbenv install 2.5.1
 rbenv install 2.6.4
@@ -127,6 +128,7 @@ pyenv global 3.6.1
 
 goenv install 1.11.4
 goenv global 1.11.4
+tfenv install 0.15.5
 
 echo '
 export GOPATH=$HOME/go
@@ -155,11 +157,11 @@ echo 'export PATH="/usr/local/opt/python@3.7/bin:$PATH"' >> ~/.zshrc
 # kubectx
 brew install kubectx
 
-# terraform
-brew install terraform
-
 # tree
 brew install tree
+
+# git-secrets
+brew install git-secrets
 
 # grpcurl
 brew install grpcurl
@@ -195,64 +197,64 @@ export PATH=$HOME/.yarn/bin:$PATH
 brew tap homebrew/cask-fonts
 
 # アルフレッド
-brew cask install alfred
+brew install alfred --cask
 
 # vscode
-brew cask install visual-studio-code
+brew install visual-studio-code --cask
 
 # javaのインストール
-brew cask install java
+brew install java --cask
 
 # font
-brew cask install font-source-han-code-jp
+brew install font-source-han-code-jp --cask
 
 # chrome
-brew cask install google-chrome
+brew install google-chrome --cask
 
 # docker
-brew cask install docker
+brew install docker --cask
 
 # slack
-brew cask install slack
+brew install slack --cask
 
 # discord
-brew cask install discord
+brew install discord --cask
 
 # copyclip
-brew cask install copyclip
+brew install copyclip --cask
 
 # sublime
-brew cask install sublime-text
+brew install sublime-text --cask
 
 # firefox
-brew cask install firefox
+brew install firefox --cask
 
 # skitch
-brew cask install skitch
+brew install skitch --cask
 
 # adobe
-brew cask install adobe-creative-cloud
+brew install adobe-creative-cloud --cask
 
 # skype
-brew cask install skype
+brew install skype --cask
 
 # zoom
-brew cask install zoomus
+brew install zoomus --cask
 
 # Android-studio
-brew cask install android-studio
+brew install android-studio --cask
 
 #notion
-brew cask install notion
+brew install notion --cask
 
 # workplace
-brew cask install workplace-chat
+brew install workplace-chat --cask
 
 # clipy
-brew cask install clipy
+brew install clipy --cask
 
 # imageoptim　画像軽量化ツール
-brew cask install imageoptim
+brew install imageoptim --cask
 
 # k8sの設定をyamlで記述するためのモジュール
 brew install kubernetes-helm
@@ -260,7 +262,7 @@ brew install kubernetes-helm
 brew install k9s
 
 # gcloud
-brew cask install google-cloud-sdk
+brew install google-cloud-sdk --cask
 echo "
 # gcloud path
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
